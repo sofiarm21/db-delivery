@@ -348,6 +348,9 @@ ADD CONSTRAINT fk_t_s
 CREATE SEQUENCE secuencia_acuerdos_servicio
 /
 CREATE SEQUENCE secuencia_contratos
+    INCREMENT BY 1
+    START WITH 22
+;
 /
 CREATE SEQUENCE secuencia_det_contratos
 /

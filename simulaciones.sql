@@ -53,7 +53,7 @@ BEGIN
 
         --4. Se crea e inserta el contrato
         INSERT INTO contratos (id,id_proveedor,id_empresa_aliada,id_acuerdo_servicio,rango_fecha)
-            VALUES (1,id_proveedor,id_empresa_aliada,id_acuerdo_servicio,rango_fecha(today,ADD_MONTHS(today, dbms_random.value(2,8))));
+            VALUES (secuencia_contratos.nextval,id_proveedor,id_empresa_aliada,id_acuerdo_servicio,rango_fecha(today,ADD_MONTHS(today, dbms_random.value(2,8))));
 
         EXIT WHEN (
             --Comprobar si existen proveedores sin contrato
