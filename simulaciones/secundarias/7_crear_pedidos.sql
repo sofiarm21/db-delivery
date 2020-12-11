@@ -28,7 +28,7 @@ producto PRODUCTOS%ROWTYPE;
 lugar_sucursal LUGARES%ROWTYPE;
 usuario_lugar LUGARES%ROWTYPE;
 BEGIN
-    DBMS_OUTPUT.PUT_LINE('6. ------SIMULACIÓN CREAR PEDIDOS-------');
+    DBMS_OUTPUT.PUT_LINE('7. ------SIMULACIÓN CREAR PEDIDOS-------');
 
     SELECT p.id, p.datos_empresa.nombre, u.cedula, u.primer_nombre, u.primer_apellido
     INTO proveedor_id, proveedor_nombre, usuario_id, usuario_nombre, usuario_apellido
@@ -55,7 +55,7 @@ BEGIN
     FETCH FIRST 1 ROWS ONLY
     ;
 
-    DBMS_OUTPUT.PUT_LINE('6.1 El usuario de la app '||proveedor_nombre||', '||usuario_nombre||' '||usuario_apellido||' procede a crear un pedido a la empresa '||empresa_aliada_nombre);
+    DBMS_OUTPUT.PUT_LINE('7.1 El usuario de la app '||proveedor_nombre||', '||usuario_nombre||' '||usuario_apellido||' procede a crear un pedido a la empresa '||empresa_aliada_nombre);
 
     IF ocurrencia_contrato = 'semanal' THEN
 
@@ -111,7 +111,7 @@ BEGIN
     END IF;
 
     IF cantidad_pedidos_realizados > numero_envios_acs THEN
-        DBMS_OUTPUT.PUT_LINE('6.2 El cupo de la relación comercial entre este proveedor y esta empresa aliada ya ha sido sobrepasado');
+        DBMS_OUTPUT.PUT_LINE('7.2 El cupo de la relación comercial entre este proveedor y esta empresa aliada ya ha sido sobrepasado');
         RETURN;
     ELSE
 
@@ -128,7 +128,7 @@ BEGIN
         FROM lugares l
         WHERE l.id = usuario_direccion.id_lugar;
 
-        DBMS_OUTPUT.PUT_LINE('6.2 La zona de envio destino de este pedido es '|| usuario_lugar.nombre);
+        DBMS_OUTPUT.PUT_LINE('7.2 La zona de envio destino de este pedido es '|| usuario_lugar.nombre);
 
         SELECT COUNT (s.id)
         INTO cantidad_sucursales
@@ -237,7 +237,7 @@ BEGIN
 
 
 
-        DBMS_OUTPUT.PUT_LINE('6.3 Se crea un pedido a la sede '||sucursal_id||' de '||lugar_sucursal.nombre||' de la empresa '||empresa_aliada_nombre);
+        DBMS_OUTPUT.PUT_LINE('7.3 Se crea un pedido a la sucursal '||sucursal_id||' de '||lugar_sucursal.nombre||' de la empresa '||empresa_aliada_nombre);
 
         INSERT INTO PEDIDOS(id,ID_SUCURSAL,ID_PROVEEDOR,ID_DIRECCION, FECHA_REALIZADO, STATUS, SATISFACCION)
         VALUES (
@@ -264,7 +264,7 @@ BEGIN
         cantidad_productos:= dbms_random.value(1,15);
         contador_productos:= 1;
 
-        DBMS_OUTPUT.PUT_LINE('6.4 El pedido contará con: ');
+        DBMS_OUTPUT.PUT_LINE('7.4 El pedido contará con: ');
 
         WHILE contador_productos <= cantidad_productos
         LOOP
