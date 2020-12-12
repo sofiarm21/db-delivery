@@ -6,9 +6,10 @@ CREATE OR REPLACE PROCEDURE asignacion_pedidos_transportes( today DATE )
 IS
 conteo_pedidos INTEGER;
 transportes_disponibles INTEGER;
-hora_estimada_salida DATE;
 id_nuevo_lote INTEGER;
 lote_pedido_id INTEGER;
+lotes_disponibles INTEGER;
+hora_estimada_salida DATE;
 pedido_a_asignar PEDIDOS%ROWTYPE;
 direccion_usuario DIRECCIONES%ROWTYPE;
 sede_pedido SEDES%ROWTYPE;
@@ -34,7 +35,7 @@ CURSOR cursor_lotes_posibles (sede_id INTEGER)
     IS (
         SELECT l.*
         FROM lotes l
-        WHERE l.fecha_creacion.fecha_fin = ''
+        WHERE l.fecha_creacion.fecha_fin IS NULL
         AND l.id_sede = sede_id
     );
 CURSOR transportes_listos (sede_id INTEGER)
@@ -115,10 +116,16 @@ BEGIN
 
         /*Seleccionar lote sin fecha de salida de esa sede*/
 
+        SELECT COUNT(l.id)
+        INTO lotes_disponibles
+        FROM lotes l
+        WHERE l.fecha_creacion.fecha_fin IS NULL
+        AND l.id_sede = sede_pedido.id;
+
+        DBMS_OUTPUT.PUT_LINE('lotes_disponibles del proveedor = '||lotes_disponibles);
+
         FOR lote_posible IN cursor_lotes_posibles(sede_pedido.id)
         LOOP
-
-            DBMS_OUTPUT.PUT_LINE('8.4 lp '|| lote_posible);
 
             /*Seleccionar lote que no este lleno*/
 
@@ -129,8 +136,6 @@ BEGIN
             ON lp.id_lote = l.id
             AND l.id = lote_posible.id
             ;
-
-            DBMS_OUTPUT.PUT_LINE('8.4 CP '|| conteo_pedidos);
 
             SELECT t.*
             INTO transporte_lote
@@ -203,6 +208,7 @@ BEGIN
                 FROM l_p lp
                 WHERE lp.id_pedido = pedido_a_asignar.id
                 AND lp.id_lote = lote_pedido.id
+                FETCH FIRST 1 ROWS ONLY
                 ;
 
                 SELECT l.fecha_creacion.fecha_inicio + (1/1440*20)
@@ -211,6 +217,7 @@ BEGIN
                 INNER JOIN l_p lp
                 ON lp.id_lote = l.id
                 AND lp.id_pedido = lote_pedido_usuario.id_pedido
+                FETCH FIRST 1 ROWS ONLY
                 ;
 
                 DBMS_OUTPUT.PUT_LINE('8.5 Se ha asignado el pedido al lote de id '||lote_pedido.id|| ' en el puesto de despacho #'||lote_pedido_usuario.orden);
@@ -274,7 +281,7 @@ BEGIN
                         transporte_lote.placa,
                         sede_pedido.id,
                         0,
-                        RANGO_FECHA(today, '')
+                        RANGO_FECHA(today, NULL)
                     );
 
                 SELECT secuencia_lotes.CURRVAL
@@ -285,6 +292,7 @@ BEGIN
                 INTO lote_pedido
                 FROM lotes l
                 WHERE l.id = id_nuevo_lote
+                FETCH FIRST 1 ROWS ONLY
                 ;
 
                 INSERT INTO l_P (ID, ID_LOTE, ID_PEDIDO, ORDEN, RECOGIDO)
@@ -301,6 +309,7 @@ BEGIN
                 FROM l_p lp
                 WHERE lp.id_pedido = pedido_a_asignar.id
                 AND lp.id_lote = lote_pedido.id
+                FETCH FIRST 1 ROWS ONLY
                 ;
 
                 SELECT l.fecha_creacion.fecha_inicio + (1/1440*20)
@@ -309,6 +318,7 @@ BEGIN
                 INNER JOIN l_p lp
                 ON lp.id_lote = l.id
                 AND lp.id_pedido = lote_pedido_usuario.id_pedido
+                FETCH FIRST 1 ROWS ONLY
                 ;
 
                 DBMS_OUTPUT.PUT_LINE('8.6 Se ha asignado el pedido al lote de id '||lote_pedido.id|| ' en el puesto de despacho #'||lote_pedido_usuario.orden);
@@ -328,11 +338,11 @@ BEGIN
 
             END IF;
 
-            DBMS_OUTPUT.PUT_LINE('......');
-            DBMS_OUTPUT.PUT_LINE('Siguiente pedido a procesar...');
-            DBMS_OUTPUT.PUT_LINE('......');
-
         END IF;
+
+        DBMS_OUTPUT.PUT_LINE('......');
+        DBMS_OUTPUT.PUT_LINE('Siguiente pedido a procesar...');
+        DBMS_OUTPUT.PUT_LINE('......');
 
     END LOOP;
 
