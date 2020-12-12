@@ -34,7 +34,7 @@ CURSOR cursor_lotes_posibles (sede_id INTEGER)
     IS (
         SELECT l.*
         FROM lotes l
-        WHERE l.fecha_creacion.fecha_fin = NULL
+        WHERE l.fecha_creacion.fecha_fin = ''
         AND l.id_sede = sede_id
     );
 CURSOR transportes_listos (sede_id INTEGER)
@@ -118,6 +118,8 @@ BEGIN
         FOR lote_posible IN cursor_lotes_posibles(sede_pedido.id)
         LOOP
 
+            DBMS_OUTPUT.PUT_LINE('8.4 lp '|| lote_posible);
+
             /*Seleccionar lote que no este lleno*/
 
             SELECT COUNT(lp.id_pedido)
@@ -127,6 +129,8 @@ BEGIN
             ON lp.id_lote = l.id
             AND l.id = lote_posible.id
             ;
+
+            DBMS_OUTPUT.PUT_LINE('8.4 CP '|| conteo_pedidos);
 
             SELECT t.*
             INTO transporte_lote
@@ -270,7 +274,7 @@ BEGIN
                         transporte_lote.placa,
                         sede_pedido.id,
                         0,
-                        RANGO_FECHA(today, null)
+                        RANGO_FECHA(today, '')
                     );
 
                 SELECT secuencia_lotes.CURRVAL
