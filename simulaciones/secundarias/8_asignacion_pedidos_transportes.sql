@@ -30,6 +30,7 @@ CURSOR cursor_pedidos_asignar
             FROM l_p lp
             WHERE lp.id_pedido = p.id
         )
+        AND p.fecha_realizado.fecha_fin IS NULL
     );
 CURSOR cursor_lotes_posibles (sede_id INTEGER)
     IS (
@@ -121,8 +122,6 @@ BEGIN
         FROM lotes l
         WHERE l.fecha_creacion.fecha_fin IS NULL
         AND l.id_sede = sede_pedido.id;
-
-        DBMS_OUTPUT.PUT_LINE('lotes_disponibles del proveedor = '||lotes_disponibles);
 
         FOR lote_posible IN cursor_lotes_posibles(sede_pedido.id)
         LOOP
@@ -335,6 +334,9 @@ BEGIN
             ELSE
 
                 DBMS_OUTPUT.PUT_LINE('8.6 No es posible procesar la solicitud en estos momentos');
+                UPDATE pedidos p
+                SET p.fecha_realizado.fecha_fin = today
+                WHERE id = pedido_a_asignar.id;
 
             END IF;
 
