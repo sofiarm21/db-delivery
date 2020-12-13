@@ -13,12 +13,15 @@ P INTEGER;
         today:= today + 12/24;
         DBMS_OUTPUT.PUT_LINE('Asignando contratos...');
         /* SE LLEVA AL CABO LA SIMULAICION 1*/
+        ASIGNACION_CONTRATOS(TODAY => today);
         today:= today + 6/24;
         DBMS_OUTPUT.PUT_LINE('Asignando transportes a proveedores...');
         /* SE LLEVA AL CABO LA SIMULAICION 2*/
+        ASIGNACION_TRANSPORTES();
         today:= today + 3/24;
         DBMS_OUTPUT.PUT_LINE('Asignando usuarios a proveedores...');
         /* SE LLEVA AL CABO LA SIMULAICION 3*/
+        ASIGNACION_USUARIOS(TODAY => today);
         TODAY := TRUNC(today+1);
         DBMS_OUTPUT.PUT_LINE(' ------EMPIEZA LA SIMULACION -------');
         LOOP
@@ -43,15 +46,19 @@ P INTEGER;
             today:= today + 4/24;
             DBMS_OUTPUT.PUT_LINE('Dañando transportes...');
             /* SE LLEVA AL CABO LA SIMULAICION 4*/
+            DANAR_TRANSPORTES(DX);
             today:= today + 2/24;
             DBMS_OUTPUT.PUT_LINE('Reponiendo transportes...');
             /* SE LLEVA AL CABO LA SIMULAICION 5*/
+            REPONER_TRANSPORTES();
             today:= today + 2/24;
             DBMS_OUTPUT.PUT_LINE('Renovando contratos...');
             /* SE LLEVA AL CABO LA SIMULAICION 5*/
+            RENOVACION_CONTRATOS(TODAY => today);
             today:= today + 2/24;
             DBMS_OUTPUT.PUT_LINE('Se entra a general pedidos...');
             /* SE LLEVA AL CABO LA SIMULACION general pedidos*/
+            GENERAL_PEDIDOS(P,today);
             TODAY := TRUNC(today+1);
             dias:= dias+1;
             DBMS_OUTPUT.PUT_LINE('Se acabo el dia, a mimir');
@@ -60,4 +67,3 @@ P INTEGER;
         DBMS_OUTPUT.PUT_LINE('------TERMINANDO SIMULACIÓN GENERAL-------');
     end;
 /
-
