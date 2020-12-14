@@ -761,23 +761,3 @@ INSERT INTO PEDIDOS(id,ID_SUCURSAL,ID_PROVEEDOR,ID_DIRECCION, FECHA_REALIZADO, S
 INSERT INTO PEDIDOS(id,ID_SUCURSAL,ID_PROVEEDOR,ID_DIRECCION, FECHA_REALIZADO, STATUS, SATISFACCION) VALUES (SECUENCIA_PEDIDOS.nextval,7,15,12,RANGO_FECHA(TO_DATE('01-12-2020 13:20:00','DD-MM-YYYY HH24:MI:SS'),TO_DATE('01-12-2020 14:40:10','DD-MM-YYYY HH24:mi:ss')),'recibido',1);
 INSERT INTO PEDIDOS(id,ID_SUCURSAL,ID_PROVEEDOR,ID_DIRECCION, FECHA_REALIZADO, STATUS, SATISFACCION) VALUES (SECUENCIA_PEDIDOS.nextval,7,15,17,RANGO_FECHA(TO_DATE('06-12-2020 12:20:00','DD-MM-YYYY HH24:MI:SS'),''),'en curso','');
 INSERT INTO PEDIDOS(id,ID_SUCURSAL,ID_PROVEEDOR,ID_DIRECCION, FECHA_REALIZADO, STATUS, SATISFACCION) VALUES (SECUENCIA_PEDIDOS.nextval,7,15,15,RANGO_FECHA(TO_DATE('06-12-2020 12:20:00','DD-MM-YYYY HH24:MI:SS'),''),'en curso','');
-
-
-
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (1, 27321641, 31, 'Cll. Roraima', 'Frente al parque', ubicacion(10.479469, -66.843685));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (2, 27564921, 29, 'A. Jose Felix', 'Cerca del automotriz', ubicacion(10.493198, -66.850868));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (3, 27985940, 27, 'Transversal 4', 'Frente a clinica El Avila', ubicacion(10.509124, -66.858602));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (4, 20174854, 24, 'Av. 12', 'Al lado de la embajada', ubicacion(10.506187, -66.846125));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (5, 28849301, 22, 'Cll. Cajigal', 'edf romero', ubicacion(10.467436, -66.905458));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (6, 18473928, 20, 'Cll. Araure', 'Haciend La Trinidad', ubicacion(10.437297, -66.872288));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (7, 20384957, 18, 'Cll. B', 'CC. Santa Rosa', ubicacion(10.468922, -66.857842));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (8, 19361222, 16, 'Av. Vargas','Frente a Matosuplidores', ubicacion(10.468490, -66.878245));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (9, 22485121, 14, 'Cll. Otaima', 'Frente al Tolón', ubicacion(10.477710, -66.861111));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (10, 18374839, 12, 'Cll. D', 'Pueblo el Hatillo', ubicacion(10.421293, -66.826876));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (11,20493812, 11, 'Cll. B-10', 'Al lado de Quinta Ana', ubicacion(10.421841, -66.818207));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (12, 19387392, 13, 'Cll. A-8', 'Frente al parque ', ubicacion(10.430979, -66.819924));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (13, 17473829, 15, 'Cll. Amazonas', 'Cruzando en el semaforo', ubicacion(10.447947, -66.882405));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (14, 20174854, 17, 'Cll. Kemel', 'Frente al edf Venezuela', ubicacion(10.477315, -66.865754));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (15, 27384930, 25, 'Cll. Sucre', 'Frente al parque', ubicacion(10.493904, -66.856742));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (16, 20384957, 33, 'Cll. A rás', 'Comp. Guipuzcuana', ubicacion(10.601377, -66.927439));
-INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (17, 21849921, 34, 'Carrera 6', 'Al lado del edf Rita beach', ubicacion(10.199003, -64.691363));

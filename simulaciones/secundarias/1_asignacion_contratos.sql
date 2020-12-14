@@ -112,3 +112,8 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('-----TERMINANDO SIMULACIÓN ASIGNACIÓN DE CONTRATOS-----');
 END;
 /
+
+
+/*TODO: Verificar que el nuevo contrato no solape*/
+/*TODO: Caso borde donde no hay mas proveedores y empresas aliadas no unidas*/
+/*TODO: Revisar que cuerdo de servicio este activo*/
