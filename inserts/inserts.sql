@@ -1,6 +1,4 @@
 --PROVEEDORES--
-
-CREATE DIRECTORY IMAGEN_DIR AS 'C:\imagen\ ';
 CREATE or REPLACE PROCEDURE agregaImagen
    (directorio IN varchar2, archivoImagen IN varchar2) as
    f_lob bfile;
@@ -744,7 +742,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'sofia.jpeg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -768,7 +766,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'gabot.jpeg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -792,7 +790,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'carlos.jpeg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -816,7 +814,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'cesar.jpeg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -840,7 +838,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'benito.png';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -864,7 +862,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'marco.jpg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -888,7 +886,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'joseb.jpg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -912,7 +910,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'padrino.jpg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -936,7 +934,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'jquiles.jpg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -960,7 +958,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'sebastian.jpeg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -984,7 +982,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'michael.jpg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -998,7 +996,7 @@ CREATE or replace PROCEDURE agregaImagen
    b_lob blob;
 BEGIN
    f_lob := bfilename(directorio, archivoImagen);
-   INSERT INTO usuarios (cedula, primer_nombre, primer_apellido, email, telefono, fecha_registro, SEGUNDO_NOMBRE, SEGUNDO_APELLIDO, FOTO) VALUES (19387392, 'Rebecca', 'Gomez', 'rebeccag@gmail.com', '0424-3849332', TO_DATE('22-01-2020', 'DD-MM-YYYY'),'','Morales',empty_blob())
+   INSERT INTO usuarios (cedula, primer_nombre, primer_apellido, email, telefono, fecha_registro, SEGUNDO_NOMBRE, SEGUNDO_APELLIDO, FOTO) VALUES (19387392, 'Plastique', 'Tiara', 'plastiquet@gmail.com', '0424-3849332', TO_DATE('22-01-2020', 'DD-MM-YYYY'),'','Morales',empty_blob())
    RETURNING FOTO into b_lob;
    dbms_lob.fileopen(f_lob,dbms_lob.file_readonly);
    dbms_lob.loadfromfile(b_lob, f_lob, dbms_lob.getlength(f_lob));
@@ -1008,7 +1006,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'plastique.jpg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -1032,7 +1030,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'andrea.jpeg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -1056,7 +1054,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'rosalia.jpg';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -1070,7 +1068,7 @@ CREATE or replace PROCEDURE agregaImagen
    b_lob blob;
 BEGIN
    f_lob := bfilename(directorio, archivoImagen);
-   INSERT INTO usuarios (cedula, primer_nombre, primer_apellido, email, telefono, fecha_registro, SEGUNDO_NOMBRE, SEGUNDO_APELLIDO, FOTO) VALUES (27384930, 'Marla', 'Delvic', 'larissam@gmail.com', '0424-3849301', TO_DATE('11-02-2020', 'DD-MM-YYYY'),'','',empty_blob())
+   INSERT INTO usuarios (cedula, primer_nombre, primer_apellido, email, telefono, fecha_registro, SEGUNDO_NOMBRE, SEGUNDO_APELLIDO, FOTO) VALUES (27384930, 'Luna', 'Gil', 'larissam@gmail.com', '0424-3849301', TO_DATE('11-02-2020', 'DD-MM-YYYY'),'','',empty_blob())
    RETURNING FOTO into b_lob;
    dbms_lob.fileopen(f_lob,dbms_lob.file_readonly);
    dbms_lob.loadfromfile(b_lob, f_lob, dbms_lob.getlength(f_lob));
@@ -1080,7 +1078,7 @@ END;
 /
 declare
 	DIRECTORIO VARCHAR2(4000) := 'IMAGEN_DIR';
-	ARCHIVOIMAGEN VARCHAR2(4000) := 'usuariopred.jpeg';
+	ARCHIVOIMAGEN VARCHAR2(4000) := 'luna.png';
 begin
 	AGREGAIMAGEN(
 		DIRECTORIO => DIRECTORIO,
@@ -1887,8 +1885,7 @@ INSERT INTO trackings(ID, ID_PEDIDO, UBICACION_EXACTA) VALUES (SECUENCIA_TRACKIN
 INSERT INTO trackings(ID, ID_PEDIDO, UBICACION_EXACTA) VALUES (SECUENCIA_TRACKINGS.nextval,75,UBICACION(10.494277, -66.852467));
 
 
---LOTES--
-
+-- LOTES --
 
 
 INSERT INTO lotes (ID, ID_TRANSPORTE, ID_SEDE, ENTREGADO, FECHA_CREACION) VALUES (SECUENCIA_LOTES.nextval,16,1,1,RANGO_FECHA(TO_DATE('01-12-2020 11:30:00','DD-MM-YYYY HH24:MI:SS'),TO_DATE('01-12-2020 11:50:00','DD-MM-YYYY HH24:MI:SS')));
@@ -1953,7 +1950,6 @@ INSERT INTO lotes (ID, ID_TRANSPORTE, ID_SEDE, ENTREGADO, FECHA_CREACION) VALUES
 INSERT INTO lotes (ID, ID_TRANSPORTE, ID_SEDE, ENTREGADO, FECHA_CREACION) VALUES (SECUENCIA_LOTES.nextval,187,29,1,RANGO_FECHA(TO_DATE('01-12-2020 13:20:00','DD-MM-YYYY HH24:MI:SS'),TO_DATE('01-12-2020 13:22:10','DD-MM-YYYY HH24:MI:SS')));
 INSERT INTO lotes (ID, ID_TRANSPORTE, ID_SEDE, ENTREGADO, FECHA_CREACION) VALUES (SECUENCIA_LOTES.nextval,181,28,0,RANGO_FECHA(TO_DATE('06-12-2020 12:20:00','DD-MM-YYYY HH24:MI:SS'),TO_DATE('06-12-2020 12:40:00','DD-MM-YYYY HH24:MI:SS')));
 INSERT INTO lotes (ID, ID_TRANSPORTE, ID_SEDE, ENTREGADO, FECHA_CREACION) VALUES (SECUENCIA_LOTES.nextval,182,28,0,RANGO_FECHA(TO_DATE('06-12-2020 12:20:00','DD-MM-YYYY HH24:MI:SS'),TO_DATE('06-12-2020 12:40:00','DD-MM-YYYY HH24:MI:SS')));
-
 ----L_P---
 
 INSERT INTO l_P (ID, ID_LOTE, ID_PEDIDO, ORDEN, RECOGIDO) VALUES (SECUENCIA_L_P.nextval,1,1,1,1);
