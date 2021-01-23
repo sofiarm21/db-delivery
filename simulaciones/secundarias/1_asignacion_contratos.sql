@@ -74,15 +74,10 @@ BEGIN
 
         /* 5. Se selecciona el id del nuevo contrato creado */
 
-        SELECT c.id
+        SELECT secuencia_contratos.CURRVAL
         INTO id_nuevo_contrato
-        FROM contratos c
-        WHERE (c.id_proveedor = id_proveedor
-            AND c.id_empresa_aliada = id_empresa_aliada
-            AND today BETWEEN c.rango_fecha.fecha_inicio AND c.rango_fecha.fecha_fin)
-        FETCH FIRST 1 ROWS ONLY
+        FROM DUAL
         ;
-
         DBMS_OUTPUT.PUT_LINE('1.5 Se ha generado un nuevo contrato con id '||id_nuevo_contrato);
 
        /*6. Se crea el detalle de contrato */
