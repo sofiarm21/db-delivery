@@ -19,7 +19,8 @@ SELECT rep.*, p.logo FROM(
         ON pe.id = t.id_pedido
         INNER JOIN p_p pp
         ON pe.id = pp.id_pedido
-        GROUP BY(e.nombre, p.datos_empresa.nombre, d.calle, d.lugar_referencia, t.id, pe.fecha_realizado.fecha_inicio, pe.fecha_realizado.fecha_fin, u.email)) rep
+        GROUP BY(e.nombre, p.datos_empresa.nombre, d.calle, d.lugar_referencia, t.id, pe.fecha_realizado.fecha_inicio, pe.fecha_realizado.fecha_fin, u.email)
+) rep
 INNER JOIN proveedores p
 ON p.id = p.id
 ;
