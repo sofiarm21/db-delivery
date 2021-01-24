@@ -1,3 +1,7 @@
+
+create or replace PROCEDURE reporte_12(origen string,destino string, cur OUT sys_refcursor) IS
+BEGIN
+    OPEN cur FOR
 SELECT tabla.*, p.LOGO
        FROM
     (SELECT
@@ -17,6 +21,8 @@ SELECT tabla.*, p.LOGO
         LEFT JOIN pedidos ped on lp.ID_PEDIDO=ped.ID
         INNER JOIN DIRECCIONES D on D.ID = ped.ID_DIRECCION and ped.STATUS='recibido'
         INNER JOIN lugares e on D.ID_LUGAR=E.ID
+        where  ((0<instr(origen,l.NOMBRE)) or origen is null ) and ((0<instr(destino,e.NOMBRE)) or destino is null )
         GROUP BY (P.id, T.TIPO, L.NOMBRE,E.NOMBRE,PED.FECHA_REALIZADO.FECHA_INICIO, PED.FECHA_REALIZADO.FECHA_FIN)) tabla
     INNER JOIN PROVEEDORES p on p.ID=dx
 ;
+    end;
