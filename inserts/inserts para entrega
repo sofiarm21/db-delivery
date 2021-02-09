@@ -1,0 +1,39 @@
+
+-Gerente prov-
+
+select * from DIRECCIONES 
+
+INSERT INTO direcciones (id, id_usuario, id_lugar, calle, lugar_referencia, ubicacion_exacta) VALUES (18, 20174854, 34, 'Carrera 6', 'Al lado del edf Rita beach', ubicacion(10.199003, -64.691363));
+
+
+
+
+--CONDUCTOR PROV--
+
+SELECT * FROM LOTES
+
+INSERT INTO PEDIDOS(id,ID_SUCURSAL,ID_PROVEEDOR,ID_DIRECCION, FECHA_REALIZADO, STATUS, SATISFACCION) VALUES (1000,2,1,1,RANGO_FECHA(TO_DATE('01-12-2020 11:20:00','DD-MM-YYYY HH24:MI:SS'),TO_DATE('01-12-2020 13:00:10','DD-MM-YYYY HH24:mi:ss')),'recibido',1);
+
+
+
+--GERENTE EMPRESA ALIADA--
+
+SELECT * FROM CONTRATOS
+
+INSERT INTO contratos (id,id_proveedor,id_empresa_aliada,id_acuerdo_servicio,rango_fecha) VALUES (26,11,1,18,rango_fecha(TO_DATE('01/09/2020', 'DD-MM-YYYY'),TO_DATE('20/12/2020','DD-MM-YYYY')));
+
+
+
+--EMPLEADO EA--
+
+select * from lugares
+
+INSERT INTO lugares VALUES (5, null, 'Sucre', 'estado');
+
+--cliente--
+
+select * from pedidos
+
+INSERT INTO lugares VALUES (5, null, 'Sucre', 'estado');
+
+
